@@ -1,0 +1,58 @@
+.navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    height: 15%;
+}
+
+.button.raised {
+    font-size: 20px;
+    font-weight: 500;
+    align-self: center;
+    width: fit-content;
+    min-width: 200px;
+    justify-content: center;
+    border-radius: 15px;
+    margin: 10px 0;
+    height: 1000px;
+}
+
+.button.raised::after {
+    position: absolute;
+    display: block;
+    content: ">";
+    right: 10px;
+    top: -1px;
+    font-weight: 900;
+}
+
+.skip {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+}
+
+.skip:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.progress {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.dot {
+    background-color: white;
+    opacity: 0.5;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.active {
+    opacity: 0.9;
+}
