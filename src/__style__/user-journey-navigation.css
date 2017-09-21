@@ -2,8 +2,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 40%;
-    height: 15%;
 }
 
 .button.raised {
@@ -15,7 +13,6 @@
     justify-content: center;
     border-radius: 15px;
     margin: 10px 0;
-    height: 1000px;
 }
 
 .button.raised::after {

@@ -27,7 +27,7 @@ export class UserJourneyNavigation extends React.Component<{i18nPrefix?: string,
                         return <div onClick={() => userJourneyStore.goTo(index)} key={card.order} className={`${theme!.dot} ${isActive}`}/>;
                     })}
                 </div>
-                <Button theme={{button: theme!.button, raised: theme!.raised}} onClick={userJourneyStore.next} label={this.buttonLabel} />
+                <Button theme={{button: theme!.button, raised: theme!.raised}} raised onClick={userJourneyStore.next} label={this.buttonLabel} />
                 <div className={theme!.skip} onClick={userJourneyStore.close}>{i18next.t(`${i18nPrefix}.userJourney.skip`)}</div>
             </div>
         );
