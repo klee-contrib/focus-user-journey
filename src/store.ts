@@ -26,7 +26,7 @@ export class UserJourneyStore {
      * The state of the journey. true -> the journey is diplayed, false _> the journey isn't.
      */
     @observable
-    private open = true;
+    private open = false;
 
     /**
      * All the cards of the journey.
