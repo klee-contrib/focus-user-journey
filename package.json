@@ -1,6 +1,6 @@
 {
   "name": "focus-user-journey",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "description": "Extension pour écrans de présentation ",
   "main": "index.js",
   "repository": {
@@ -11,7 +11,7 @@
   "license": "MIT",
   "homepage": "https://github.com/KleeGroup/focus-user-journey",
   "scripts": {
-    "prepublish": "in-publish && tsc --outDir ./ && node scripts/copy-css.js ./ || true",
+    "prepublishOnly": "tsc --outDir ./ && node scripts/copy-css.js ./",
     "postpublish": "rm -rf card.js card.d.ts index.js index.d.ts navigation.js navigation.d.ts store.js store.d.ts user-journey.js user-journey.d.ts && rm -rf __style__ translation",
     "start": "tsc && node scripts/copy-css.js dist",
     "tcm": "tcm src",
@@ -19,32 +19,31 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "core-decorators": "*",
-    "i18next": "*",
-    "mobx": "^3.0.0",
-    "mobx-react": "^4.0.0",
-    "react": "^15.0.0",
+    "i18next": ">= 1.x",
+    "lodash": ">= 4.x",
+    "mobx": ">= 3.x",
+    "mobx-react": ">= 4.x",
     "react-css-themr": "^2.0.0",
     "react-toolbox": ">=2.0.0-beta.0",
-    "tslib": "^1.0.0"
+    "react": ">= 15.x",
+    "tslib": ">= 1.x"
   },
   "devDependencies": {
-    "@types/core-decorators": "0.10.32",
-    "@types/i18next": "8.4.2",
-    "@types/lodash": "4.14.74",
-    "@types/react": "15.0.1",
-    "core-decorators": "0.20.0",
-    "i18next": "9.0.0",
-    "in-publish": "2.0.0",
-    "mobx": "3.2.2",
-    "mobx-react": "4.2.2",
-    "react": "15.6.1",
+    "@types/i18next": "8.4.4",
+    "@types/lodash": "4.14.116",
+    "@types/react": "16.4.10",
+    "i18next": "11.6.0",
+    "lodash": "4.17.10",
+    "mobx": "4.3.1",
+    "mobx-react": "5.2.8",
+    "react": "16.4.2",
     "react-css-themr": "2.1.2",
-    "react-toolbox": "2.0.0-beta.12",
-    "shelljs": "0.7.8",
-    "tslib": "1.7.1",
-    "tslint": "5.7.0",
-    "typed-css-modules": "0.3.0",
-    "typescript": "2.5.2"
+    "react-dom": "16.4.2",
+    "react-toolbox": "2.0.0-beta.13",
+    "tslib": "1.9.3",
+    "tslint": "5.11.0",
+    "typescript": "3.0.3",
+    "shelljs": "0.8.2",
+    "typed-css-modules": "0.3.5"
   }
 }

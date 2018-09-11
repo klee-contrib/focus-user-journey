@@ -9,7 +9,7 @@ import {userJourneyStore} from "./store";
 import * as styles from "./__style__/user-journey-navigation.css";
 export type UserJourneyNavigationStyle = Partial<typeof styles>;
 
-export class UserJourneyNavigation extends React.Component<{i18nPrefix?: string, theme?: UserJourneyNavigationStyle}, void> {
+export class UserJourneyNavigation extends React.Component<{i18nPrefix?: string, theme?: UserJourneyNavigationStyle}> {
 
     @computed
     get buttonLabel() {

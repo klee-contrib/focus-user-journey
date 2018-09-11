@@ -1,4 +1,3 @@
-import {autobind} from "core-decorators";
 import {action, computed, observable} from "mobx";
 
 import {UserJourneyCardProps} from "./card";
@@ -13,7 +12,6 @@ export interface UserJourneyInit {
 /**
  * Class to pilot the state of the user journey.
  */
-@autobind
 export class UserJourneyStore {
 
     /**
@@ -47,6 +45,7 @@ export class UserJourneyStore {
     /**
      * Go to the next card. Close the journey if it's the last one.
      */
+    @action.bound
     next() {
         if (this.activeStep < this.cards.length - 1) {
             this.activeStep++;
@@ -58,6 +57,7 @@ export class UserJourneyStore {
     /**
      * Go to the last card.
      */
+    @action.bound
     last() {
         this.activeStep = this.cards.length;
     }
@@ -65,6 +65,7 @@ export class UserJourneyStore {
     /**
      * Go the the previous card. Stop at the first one.
      */
+    @action.bound
     previous() {
         if (this.activeStep > 0) {
             this.activeStep--;
@@ -74,6 +75,7 @@ export class UserJourneyStore {
     /**
      * Go to the first card.
      */
+    @action.bound
     first() {
         this.activeStep = 0;
     }
@@ -82,6 +84,7 @@ export class UserJourneyStore {
      * Go to the designated index.
      * @param index index to go to.
      */
+    @action.bound
     goTo(index: number) {
         this.activeStep = index;
     }
@@ -89,6 +92,7 @@ export class UserJourneyStore {
     /**
      * Close the journey and call the callback function.
      */
+    @action.bound
     close() {
         this.open = false;
         if (this.callBack) {
@@ -99,7 +103,7 @@ export class UserJourneyStore {
     /**
      * Start the user journey from the first card.
      */
-    @action
+    @action.bound
     start() {
         this.open = true;
         this.activeStep = 0;
@@ -110,6 +114,7 @@ export class UserJourneyStore {
      * @param conf Configuration of the journey.
      * @param callback Callback function called at the end of the journey.
      */
+    @action.bound
     init(conf: UserJourneyInit, callback?: (cards: UserJourneyCardProps[]) => void) {
         this.cards = conf.cards.sort((a, b) =>
             a.order - b.order);
@@ -121,6 +126,7 @@ export class UserJourneyStore {
     /**
      * clear the state of the user journey.
      */
+    @action.bound
     clear() {
         this.cards = [];
         this.activeStep = 0;

@@ -24,7 +24,7 @@ export interface UserJourneyCardProps {
     theme?: UserJourneyCardStyle;
 }
 
-export class UserJourneyCard extends React.Component<UserJourneyCardProps, void> {
+export class UserJourneyCard extends React.Component<UserJourneyCardProps> {
 
     @computed
     get background() {

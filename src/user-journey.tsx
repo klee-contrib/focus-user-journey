@@ -10,7 +10,7 @@ import * as styles from "./__style__/user-journey.css";
 export type UserJourneyStyle = Partial<typeof styles>;
 
 @observer
-export class UserJourney extends React.Component<{theme?: UserJourneyStyle}, void> {
+export class UserJourney extends React.Component<{theme?: UserJourneyStyle}> {
 
     @computed
     get cardComponent() {
