@@ -1,12 +1,11 @@
 import i18next from "i18next";
-import {computed} from "mobx";
-import * as React from "react";
-import {themr} from "react-css-themr";
-import {FontIcon} from "react-toolbox/lib/font_icon";
 
-import UserJourneyNavigation from "./navigation";
+import {useTheme} from "@focus4/styling";
+import {FontIcon} from "@focus4/toolbox";
 
-import * as styles from "./__style__/user-journey-card.css";
+import {UserJourneyNavigation} from "./navigation";
+
+import styles from "./__style__/user-journey-card.css";
 export type UserJourneyCardStyle = Partial<typeof styles>;
 
 export interface UserJourneyCardProps {
@@ -24,39 +23,19 @@ export interface UserJourneyCardProps {
     theme?: UserJourneyCardStyle;
 }
 
-export class UserJourneyCard extends React.Component<UserJourneyCardProps> {
-
-    @computed
-    get background() {
-        return this.props.order % 4;
-    }
-
-    @computed
-    get image() {
-        if (this.props.getImg) {
-            return <img src={this.props.getImg()} />;
-        }
-        return null;
-    }
-
-    render() {
-        const {i18nPrefix = "focus", theme} = this.props;
-        return (
-            <div className={`${theme!.card}`}>
-                <div className={theme!.close}>
-                    {i18next.t(`${i18nPrefix}.userJourney.close`)}
-                    <FontIcon icon="clear" />
-                </div>
-                <div className={theme!.description}>
-                    {this.image}
-                    <div className={theme!.text}>
-                        {this.props.text}
-                    </div>
-                </div>
-                <UserJourneyNavigation i18nPrefix={i18nPrefix} />
+export function UserJourneyCard({i18nPrefix = "focus", getImg, text, theme: pTheme}: UserJourneyCardProps) {
+    const theme = useTheme("userJourneyCard", styles, pTheme);
+    return (
+        <div className={`${theme.card()}`}>
+            <div className={theme.close()}>
+                {i18next.t(`${i18nPrefix}.userJourney.close`)}
+                <FontIcon>clear</FontIcon>
             </div>
-        );
-    }
+            <div className={theme.description()}>
+                {getImg ? <img src={getImg()} /> : null}
+                <div className={theme.text()}>{text}</div>
+            </div>
+            <UserJourneyNavigation i18nPrefix={i18nPrefix} />
+        </div>
+    );
 }
-
-export default themr("userJourneyCard", styles)(UserJourneyCard);

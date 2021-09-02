@@ -1,35 +1,25 @@
-import {computed} from "mobx";
-import {observer} from "mobx-react";
-import * as React from "react";
-import {themr} from "react-css-themr";
+import {useObserver} from "mobx-react";
 
-import UserJourneyCard from "./card";
+import {useTheme} from "@focus4/styling";
+
+import {UserJourneyCard} from "./card";
 import {userJourneyStore} from "./store";
 
-import * as styles from "./__style__/user-journey.css";
+import styles from "./__style__/user-journey.css";
 export type UserJourneyStyle = Partial<typeof styles>;
 
-@observer
-export class UserJourney extends React.Component<{theme?: UserJourneyStyle}> {
-
-    @computed
-    get cardComponent() {
-        const {CustomCardComponent = UserJourneyCard} = userJourneyStore;
-        return <CustomCardComponent {...userJourneyStore.activeCard} />;
-    }
-
-    render() {
-        const {theme} = this.props;
-        if (userJourneyStore.isOpen) {
+export function UserJourney({theme: pTheme}: {theme?: UserJourneyStyle}) {
+    const theme = useTheme("userJourney", styles, pTheme);
+    return useObserver(() => {
+        const {CustomCardComponent = UserJourneyCard, isOpen} = userJourneyStore;
+        if (isOpen) {
             return (
-                <div className={theme!.userJourney}>
-                    <div className={theme!.overlay} onClick={userJourneyStore.close}/>
-                    {this.cardComponent}
+                <div className={theme.userJourney()}>
+                    <div className={theme.overlay()} onClick={userJourneyStore.close} />
+                    <CustomCardComponent {...userJourneyStore.activeCard} />
                 </div>
             );
         }
         return null;
-    }
+    });
 }
-
-export default themr("userJourney", styles)(UserJourney);

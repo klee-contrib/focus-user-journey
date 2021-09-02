@@ -13,7 +13,6 @@ export interface UserJourneyInit {
  * Class to pilot the state of the user journey.
  */
 export class UserJourneyStore {
-
     /**
      * the index of the active step.
      */
@@ -30,7 +29,7 @@ export class UserJourneyStore {
      * All the cards of the journey.
      */
     @observable
-    private cards: UserJourneyCardProps[];
+    private cards!: UserJourneyCardProps[];
 
     /**
      * Callback called when the journey closes with the cards used during the journey.
@@ -116,8 +115,7 @@ export class UserJourneyStore {
      */
     @action.bound
     init(conf: UserJourneyInit, callback?: (cards: UserJourneyCardProps[]) => void) {
-        this.cards = conf.cards.sort((a, b) =>
-            a.order - b.order);
+        this.cards = conf.cards.sort((a, b) => a.order - b.order);
         this.callBack = callback;
         this.activeStep = 0;
         this.customCardComponent = conf.CustomCardComponent;

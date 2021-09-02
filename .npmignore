@@ -1,4 +1,7 @@
 .vscode
-dist
+src
+.npmrc
+.prettierrc.json
+.gitignore
+rollup.config.js
 tsconfig.json
-tslint.json
