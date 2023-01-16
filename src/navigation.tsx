@@ -34,13 +34,13 @@ export function UserJourneyNavigation({
                     })}
                 </div>
                 <Button
-                    theme={{button: theme!.button, raised: theme!.raised}}
+                    theme={{button: theme.button(), "button--raised": theme.raised()}}
                     raised
                     onClick={userJourneyStore.next}
                     label={
                         userJourneyStore.isLastCard
-                            ? i18next.t(`${i18nPrefix}.userJourney.last`)
-                            : i18next.t(`${i18nPrefix}.userJourney.next`)
+                            ? i18next.t(`${i18nPrefix}.userJourney.last`)!
+                            : i18next.t(`${i18nPrefix}.userJourney.next`)!
                     }
                 />
                 <div className={theme.skip()} onClick={userJourneyStore.close}>

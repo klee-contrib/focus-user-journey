@@ -1,17 +1,18 @@
 {
     "compilerOptions": {
         // Général
-        "lib": ["es2018", "dom"],
+        "lib": ["es2020", "dom"],
         "jsx": "react-jsx",
         "module": "esnext",
         "moduleResolution": "node",
-        "target": "es5",
+        "target": "es2020",
+        "declarationDir": "./lib",
 
         // Options obligatoires
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true,
-        "skipLibCheck": true,
         "strict": true,
+        "useDefineForClassFields": true,
 
         // Options additionnelles
         "importHelpers": true,
@@ -20,10 +21,10 @@
         "noUnusedParameters": true,
 
         // Spécifique librairie
-        "declarationDir": "./lib",
         "declaration": true,
         "sourceMap": true,
         "inlineSources": true,
-        "stripInternal": true
+        "stripInternal": true,
+        "noEmitOnError": true
     }
 }

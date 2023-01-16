@@ -1,6 +1,6 @@
 {
     "name": "focus-user-journey",
-    "version": "0.2.2",
+    "version": "0.3.0",
     "description": "Extension pour écrans de présentation",
     "main": "lib/index.js",
     "repository": {
@@ -11,26 +11,32 @@
     "license": "MIT",
     "homepage": "https://github.com/KleeGroup/focus-user-journey",
     "scripts": {
-        "start": "rollup -cm",
+        "start": "rollup -cm --bundleConfigAsCjs",
         "tcm": "tcm src"
     },
     "dependencies": {},
     "peerDependencies": {
-        "@focus4/core": ">= 10.9.0",
-        "@focus4/toolbox": ">= 10.9.0"
+        "@focus4/core": ">= 11.0.0",
+        "@focus4/toolbox": ">= 11.0.0",
+        "i18next": ">= 22.0.0",
+        "mobx": ">= 6.0.0",
+        "mobx-react": ">= 7.0.0"
     },
     "devDependencies": {
-        "@focus4/core": "10.9.0",
-        "@focus4/toolbox": "10.9.0",
-        "@rollup/plugin-node-resolve": "13.0.4",
-        "@rollup/plugin-typescript": "8.2.5",
-        "postcss": "8.3.6",
-        "rollup": "2.56.3",
+        "@focus4/core": "11.6.0",
+        "@focus4/toolbox": "11.6.0",
+        "@rollup/plugin-node-resolve": "15.0.1",
+        "@rollup/plugin-typescript": "11.0.0",
+        "i18next": "22.4.9",
+        "mobx": "6.7.0",
+        "mobx-react": "7.6.0",
+        "postcss": "8.4.21",
+        "rollup": "3.10.0",
         "rollup-plugin-copy-glob": "0.3.2",
-        "rollup-plugin-postcss": "4.0.1",
-        "tslib": "2.3.1",
-        "typescript": "4.3.5",
-        "shelljs": "0.8.4",
-        "typed-css-modules": "0.7.0"
+        "rollup-plugin-postcss": "4.0.2",
+        "tslib": "2.4.1",
+        "typescript": "4.9.4",
+        "shelljs": "0.8.5",
+        "typed-css-modules": "0.7.2"
     }
 }

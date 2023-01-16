@@ -1,4 +1,4 @@
-import {action, computed, observable} from "mobx";
+import {action, computed, makeAutoObservable, observable} from "mobx";
 
 import {UserJourneyCardProps} from "./card";
 
@@ -40,6 +40,10 @@ export class UserJourneyStore {
      * Custom card component.
      */
     private customCardComponent?: React.ComponentClass<UserJourneyCardProps>;
+
+    constructor() {
+        makeAutoObservable(this);
+    }
 
     /**
      * Go to the next card. Close the journey if it's the last one.
